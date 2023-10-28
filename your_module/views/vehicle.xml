@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="vehicle_tree_view" model="ir.ui.view">
+            <field name="name">vehicle.tree.view</field>
+            <field name="model">vehicle</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="year_model" />
+                    <field name="short_description" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="vehicle_form_view" model="ir.ui.view">
+            <field name="name">vehicle.form.view</field>
+            <field name="model">vehicle</field>
+            <field name="arch" type="xml">
+                <form js_class="vehicle_form_view">
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+                    </header>
+                    <group>
+                        <field name="name" />
+                        <field name="logo" />
+                        <field name="year_model" />
+                        <field name="date_manufactured" />
+                        <field name="short_description" />
+                        <field name="long_description" />
+                        <field name="vehicle_services"/>
+                        <field name="vehicle_parts"/>
+                    </group>
+
+                    <field name="active" invisible="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="vehicle_graph_view" model="ir.ui.view">
+            <field name="name">vehicle.graph.view</field>
+            <field name="model">vehicle</field>
+            <field name="arch" type="xml">
+                <graph string="Vehicle">
+                    <field name="name"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="vehicle_pivot_view" model="ir.ui.view">
+            <field name="name">vehicle.pivot.view</field>
+            <field name="model">vehicle</field>
+            <field name="arch" type="xml">
+                <pivot string="Vehicle">
+                    <field name="name" type="row"/>
+                    <field name="date_manufactured" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- Vehicle -->
+        <record id="action_vehicle" model="ir.actions.act_window">
+            <field name="name">Vehicle</field>
+            <field name="res_model">vehicle</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+        </record>
+
+        <!-- Vehicle New -->
+        <record id="action_vehicle_new" model="ir.actions.act_window">
+            <field name="name">Vehicle New</field>
+            <field name="res_model">vehicle.new</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+        </record>
+
+        <!-- Vehicle Report -->
+        <record id="action_vehicle_report" model="ir.actions.act_window">
+            <field name="name">Vehicle Report</field>
+            <field name="res_model">vehicle.report</field>
+            <field name="view_mode">tree,form,graph,pivot</field>
+        </record>
+
+        <!-- Services -->
+        <record id="action_services" model="ir.actions.act_window">
+            <field name="name">Services</field>
+            <field name="res_model">vehicle.services</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Parts -->
+        <record id="action_parts" model="ir.actions.act_window">
+            <field name="name">Parts</field>
+            <field name="res_model">vehicle.parts</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_vehicle_client" model="ir.actions.client">
+            <field name="name">Vehicle</field>
+            <field name="tag">vehicle_client_action</field>
+        </record>
+
+        <menuitem name="Vehicle" id="menu_root_vehicle">
+            <menuitem id="menu_vehicle" name="Vehicle" action="action_vehicle"/>
+            <!--<menuitem id="menu_vehicle" name="Vehicle" action="action_vehicle_client"/>-->
+            <menuitem id="menu_services" name="Services" action="action_services"/>
+            <menuitem id="menu_parts" name="Parts" action="action_parts"/>
+            <menuitem id="menu_vehicle_new" name="Vehicle New" action="action_vehicle_new"/>
+            <menuitem id="menu_vehicle_report" name="Vehicle Report" action="action_vehicle_report"/>
+        </menuitem>
+    </data>
+</odoo>

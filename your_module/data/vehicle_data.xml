@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+     <template id="your_module.vehicles" name="Vehicles">
+         <t t-call="website.layout">
+            <h1>Vehicles</h1>
+
+             <ul t-foreach="vehicles" t-as="vehicle">
+                 <t t-call="your_module.vehicle_subcomponent"/>
+             </ul>
+         </t>
+     </template>
+
+    <template id="your_module.vehicle_subcomponent" name="Vehicle Sub Component">
+        <li>
+            <span t-out="vehicle.name"/> - <span t-out="vehicle.short_description"/>
+        </li>
+    </template>
+</data>
+</odoo>

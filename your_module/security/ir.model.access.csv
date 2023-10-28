@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_vehicle_public,access_vehicle_public,model_vehicle,,1,0,0,0
+access_vehicle_user,access_vehicle_user,model_vehicle,your_module.group_vehicle_user,1,0,0,0
+access_vehicle_manager,access_vehicle_manager,model_vehicle,your_module.group_vehicle_manager,1,1,1,1
+access_vehicle_user_sale_order,access_vehicle_user_sale_order,sale.model_sale_order,your_module.group_vehicle_user,1,1,1,0
+access_vehicle_manager_sale_order,access_vehicle_manager_sale_order,sale.model_sale_order,your_module.group_vehicle_manager,1,1,1,1
+access_vehicle_parts,access_vehicle_parts,model_vehicle_parts,your_module.group_vehicle_user,1,1,1,1
+access_vehicle_services,access_vehicle_services,model_vehicle_services,your_module.group_vehicle_user,1,1,1,1
+access_vehicle_new_user,access_vehicle_new_user,model_vehicle_new,your_module.group_vehicle_user,1,1,1,0
+access_vehicle_new_manager,access_vehicle_new_manager,model_vehicle_new,your_module.group_vehicle_user,1,1,1,1
+access_vehicle_report,access_vehicle_report,model_vehicle_report,your_module.group_vehicle_user,1,1,1,1

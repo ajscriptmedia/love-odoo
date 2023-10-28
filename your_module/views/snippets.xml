@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="your_custom_snippet" name="Your Custom Snippet">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1 class="py-5">This is my custom snippet</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="custom_snippets" inherit_id="website.snippets" name="Custom Snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div id="snippet_structure" class="o_panel">
+                <div class="o_panel_header">Custom Snippets</div>
+                <div class="o_panel_body">
+                    <t t-snippet="your_module.your_custom_snippet" t-thumbnail="/your_module/static/src/img/snippet-icon.png">
+                        <keywords>custom snippet</keywords>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+</odoo>

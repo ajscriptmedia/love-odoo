@@ -1,0 +1,19 @@
+$o-color-palettes: map-merge($o-color-palettes,
+    (
+        'ajscript': (
+            'o-color-1': #1E6E3E, // primary
+            'o-color-2': #D9E4DD, // secondary
+            'o-color-3': #38E37D, // extra
+            'o-color-4': #FFFFFF, // whitish
+            'o-color-5': #011007, // blackish
+        ),
+    )
+);
+
+$o-selected-color-palettes-names: append($o-selected-color-palettes-names, 'ajscript');
+
+$o-website-values-palettes: (
+    (
+        'color-palettes-name': 'ajscript',
+    ),
+);

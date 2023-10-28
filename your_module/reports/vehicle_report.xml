@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+<data>
+    <record id="action_report_vehicle" model="ir.actions.report">
+        <field name="name">Vehicle</field>
+        <field name="model">vehicle</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">your_module.report_vehicle</field>
+        <field name="report_file">your_module.report_vehicle</field>
+        <field name="print_report_name">(object.name)</field>
+        <field name="binding_model_id" ref="model_vehicle"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_vehicle">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1>This is a vehicle report</h1>
+
+                        <p t-out="doc.name"/>
+                        <p t-out="other_data"/>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</data>
+</odoo>
